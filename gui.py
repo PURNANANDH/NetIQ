@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 OUTPUT_PATH = Path(__file__).parent
@@ -180,7 +181,43 @@ def knn():
         messagebox.showerror('Error', f'Error in kNN classification: {e}')
 
 def svm():
-    pass
+    global df, fileloc, outp
+    if fileloc == '':
+        messagebox.showerror('Error', 'Please select a file first and preprocess it')
+        return
+    
+    try:
+        outp = 'SVM classification initiated'
+        canvas.itemconfig(output_text, text=outp)
+        
+        X = df.drop(columns=['label'])
+        y = df['label']
+        
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=74)
+        model2 = SVC(kernel='rbf')
+        model2.fit(X_train, y_train)
+        test_prediction = model2.predict(X_test)
+        k_cm = confusion_matrix(y_test, test_prediction)
+        svm_accuracy = model2.score(X_test, y_test)
+        outp = f'SVM Accuracy Score: {svm_accuracy}'
+        canvas.itemconfig(output_text, text=outp)
+        
+        # Clear the frame before displaying the plot
+        clear_frame(table_frame)        
+        
+        # Plot the confusion matrix
+        fig, ax = plt.subplots()
+        sb.heatmap(k_cm, annot=True, fmt='g', ax=ax)
+        ax.set_xlabel('Predicted')
+        ax.set_ylabel('Actual')
+        ax.set_title('Confusion Matrix for SVM Classifier')
+        # Create a Matplotlib figure canvas and embed it in the tkinter window
+        canvas_plt = FigureCanvasTkAgg(fig, master=table_frame)
+        canvas_plt.draw()
+        canvas_plt.get_tk_widget().pack()
+    
+    except Exception as e:
+        messagebox.showerror('Error', f'Error in SVM classification: {e}')
 
 def naiveB():
     global df, fileloc, outp
