@@ -20,6 +20,10 @@ NetIQ is a GUI-based application designed to classify network traffic based on a
 
 ## Installation
 
+Download the executive file from releases
+
+or
+
 1. **Clone the repository:**
     ```bash
     git clone https://github.com/yourusername/NetIQ.git
