@@ -50,7 +50,7 @@ NetIQ is a GUI-based application designed to classify network traffic based on a
 
 1. **Run the application:**
     ```bash
-    python netiq.py
+    python gui.py
     ```
 
 2. **Upload CSV File:**
