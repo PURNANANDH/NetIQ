@@ -20,7 +20,7 @@ NetIQ is a GUI-based application designed to classify network traffic based on a
 
 ## Installation
 
-Download the executive file from releases
+Download the executable file from releases
 
 or
 
