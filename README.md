@@ -26,7 +26,7 @@ or
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/NetIQ.git
+    git clone https://github.com/peyushgedela/NetIQ.git
     cd NetIQ
     ```
 
