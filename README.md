@@ -80,8 +80,8 @@ NetIQ supports the following machine learning models:
 
 NetIQ was developed by:
 - S Meghanath Reddy [Github Profile](https://github.com/RAF-MAKEOUTHILL)
-- K Purnanandh [Github profile](https://github.com/PURNANANDH)
-- G Peyush
+- K Purnanandh 
+- G Peyush [Github profile](https://github.com/peyushgedela)
 
 Special thanks to Prof. L. Anjaneyulu, NIT Warangal for his unending support.
 
